@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alumno;
+use App\Models\Client;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAlumnoRequest;
-use App\Http\Requests\UpdateAlumnoRequest;
+use App\Http\Requests\StoreClientRequest;
+use App\Http\Requests\UpdateClientRequest;
 
-class AlumnoController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $alumnos = Alumno::all();
-        return view('alumnos.index', compact('alumnos'));
+        $clientes = Client::all();
+        return view('clientes.index', compact('clientes'));
     }
 
 
@@ -32,7 +32,7 @@ class AlumnoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAlumnoRequest $request)
+    public function store(StoreClientRequest $request)
     {
 
     }
@@ -40,7 +40,7 @@ class AlumnoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Alumno $alumno)
+    public function show(Client $client)
     {
         //
     }
@@ -48,7 +48,7 @@ class AlumnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Alumno $alumno)
+    public function edit(Client $client)
     {
         //
     }
@@ -56,7 +56,7 @@ class AlumnoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAlumnoRequest $request, Alumno $alumno)
+    public function update(UpdateClientRequest $request, Client $client)
     {
         //
     }
@@ -64,7 +64,7 @@ class AlumnoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Alumno $alumno)
+    public function destroy(Client $client)
     {
         //
     }
