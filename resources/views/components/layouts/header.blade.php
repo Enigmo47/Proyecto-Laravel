@@ -1,6 +1,6 @@
-<header class="h-16v bg-header p-5 flex justify-between items-center">
+<header class="h-16v bg-green-500 p-5 flex justify-between items-center">
     <a href="/">
-        <img class="h-16v" src="{{ asset('/images/logo.png') }}" alt="Logo del Instituto" />
+        <img class="h-16v" src="{{ asset('/images/logo.png') }}" alt="Logo de la empresa" />
     </a>
     <h1 class="text-5xl text-white">Eco Travel Client BBDD</h1>
     <div>
