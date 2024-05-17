@@ -26,8 +26,8 @@ La estructura del proyecto tiene además de loc clientes otras páginas útiles 
 - **Vistas de Clientes**: 
   - Crear
   - Editar
-  - Index (con una tabla principal)
-- **Controlador de Alumnos**: Controla el acceso a esta clase de la base de datos.
+  - Index, que cuenta con la tabla principal del portal
+- **Controlador de Clientes**: Controla el acceso a esta clase de la base de datos.
 
 ## Contacto
 
