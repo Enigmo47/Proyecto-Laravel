@@ -13,8 +13,8 @@ Este proyecto se ha realizado con VSCode únicamente.
 ## Tecnologías Utilizadas
 
 - Laravel
-- Breeze
 - Tailwind CSS
+- Breeze
 - VSCode
 
 ## Estructura del Proyecto
