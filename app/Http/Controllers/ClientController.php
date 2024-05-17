@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
 
@@ -17,9 +16,6 @@ class ClientController extends Controller
         $clientes = Client::all();
         return view('clientes.index', compact('clientes'));
     }
-
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -36,11 +32,11 @@ class ClientController extends Controller
     {
         $datos = $request->input();
         $cliente= new Client($datos);
-        session()->flash("status","Creación del cliente $cliente->nombre");
+        session()->flash("status","Se ha creado el cliente $cliente->nombre");
         $cliente->save();
         return redirect()->route('clientes.index');
     }
-
+    
     /**
      * Display the specified resource.
      */
@@ -52,7 +48,7 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Client $client)
+    public function edit(Client $cliente)
     {
         return view("clientes.edit", compact("cliente"));
     }
@@ -62,10 +58,11 @@ class ClientController extends Controller
      */
     public function update(UpdateClientRequest $request, Client $cliente)
     {
-        $datos = $request->input();
-        $cliente-> update($datos); 
-        session()->flash("status","Actualización del cliente $cliente->nombre");
-        return redirect()->route('clientes.index');    }
+        $datos = $request->all();
+        $cliente->update($datos);
+        session()->flash("status", "Actualización del cliente $cliente->nombre");
+        return redirect()->route('clientes.index');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -73,7 +70,7 @@ class ClientController extends Controller
     public function destroy(Client $cliente)
     {
         $cliente->delete();
-        session()->flash("status","Eliminación del cliente $cliente->nombre");
+        session()->flash("status", "Eliminación del cliente $cliente->nombre");
         return redirect()->route('clientes.index');
     }
 }

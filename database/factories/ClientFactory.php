@@ -29,9 +29,11 @@ class ClientFactory extends Factory
     {
         return [
             "nombre"=>fake()->name(),
-            "email"=>fake()->email(),
-            "edad"=>fake()->numberBetween(10,90),
-            "DNI"=>$this->get_dni()
+            "DNI"=>$this->get_dni(),
+            "edad"=>fake()->numberBetween(15,100),
+            "email"=>fake()->email()
+            
+            
         ];
     }
 }
