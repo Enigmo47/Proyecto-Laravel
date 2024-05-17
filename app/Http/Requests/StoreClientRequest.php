@@ -11,7 +11,7 @@ class StoreClientRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreClientRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "nombre" =>"string|required|min:5|max:50",
+            "email" =>"email|required|unique:clientes",
+            "edad" => "integer|between:10,120|required"
         ];
     }
 }

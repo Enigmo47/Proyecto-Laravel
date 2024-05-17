@@ -12,8 +12,9 @@ use App\Http\Controllers\MainController;
 Route::get('/',[MainController::class, 'index']);
 
 Route::resource("clientes",ClientController::class);
-// Route::view("clientes","clientes");
 Route::view("about","about");
+Route::view("contact","contact");
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

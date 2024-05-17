@@ -26,7 +26,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view("clientes.create");
     }
 
     /**
@@ -34,13 +34,17 @@ class ClientController extends Controller
      */
     public function store(StoreClientRequest $request)
     {
-
+        $datos = $request->input();
+        $cliente= new Client($datos);
+        session()->flash("status","Creación del cliente $cliente->nombre");
+        $cliente->save();
+        return redirect()->route('clientes.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Client $client)
+    public function show(Client $cliente)
     {
         //
     }
@@ -50,22 +54,26 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view("clientes.edit", compact("cliente"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateClientRequest $request, Client $client)
+    public function update(UpdateClientRequest $request, Client $cliente)
     {
-        //
-    }
+        $datos = $request->input();
+        $cliente-> update($datos); 
+        session()->flash("status","Actualización del cliente $cliente->nombre");
+        return redirect()->route('clientes.index');    }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Client $client)
+    public function destroy(Client $cliente)
     {
-        //
+        $cliente->delete();
+        session()->flash("status","Eliminación del cliente $cliente->nombre");
+        return redirect()->route('clientes.index');
     }
 }
